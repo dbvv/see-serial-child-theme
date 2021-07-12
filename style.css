@@ -554,6 +554,9 @@ span.autor, .search {
 	display: none;
 
 }
+.actorus span {
+	margin-right: 4px;
+}
 #dt_contenedor {
 	background: url(http://see-serial.club/wp-content/uploads/2021/07/bgs.jpg)top center !important;
 	background-attachment: scroll;

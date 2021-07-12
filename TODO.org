@@ -1,4 +1,5 @@
 * DONE make styles
 * DONE corrcet date show
-* TODO actors output on season description
+* DONE actors output on season description
+* TODO serials list on season page
 * TODO check tranlations
