@@ -199,23 +199,24 @@ function __d($text) {
 }
 
 # Date composer
-function doo_date_compose($date = false , $echo = true){
-    if(class_exists('DateTime')){
-		$class = new DateTime($date);
-        if($echo){
-            echo $class->format(DOO_TIME);
-        }else{
-            return $class->format(DOO_TIME);
-        }
-    } else {
-		if($echo){
-			echo $date;
-		}else{
-			return $date;
+if (!function_exists('doo_date_compose')) {
+	function doo_date_compose($date = false , $echo = true){
+		if(class_exists('DateTime')){
+			$class = new DateTime($date);
+			if($echo){
+				echo $class->format(DOO_TIME);
+			}else{
+				return $class->format(DOO_TIME);
+			}
+		} else {
+			if($echo){
+				echo $date;
+			}else{
+				return $date;
+			}
 		}
 	}
 }
-
 # Set views
 function doo_set_views($post_id){
     if(DOO_THEME_VIEWS_COUNT){
@@ -711,15 +712,17 @@ function doo_facebook_image($size, $post_id) {
 }
 
 # Date post
-function doo_post_date($format = false, $echo = true){
-	if(!is_string($format) || empty($format)) {
-		$format = 'F j, Y';
-	}
-	$date = sprintf( __d('%1$s') , get_the_time($format) );
-	if($echo){
-		echo $date;
-	} else {
-		return $date;
+if (!function_exists('doo_post_date')) {
+	function doo_post_date($format = false, $echo = true){
+		if(!is_string($format) || empty($format)) {
+			$format = 'F j, Y';
+		}
+		$date = sprintf( __d('%1$s') , get_the_time($format) );
+		if($echo){
+			echo $date;
+		} else {
+			return $date;
+		}
 	}
 }
 
