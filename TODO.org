@@ -1,0 +1,4 @@
+* TODO make styles
+* TODO corrcet date show
+* TODO actors output on season description
+* TODO check tranlations
