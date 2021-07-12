@@ -65,7 +65,6 @@ $title_data = array(
 					<?php _e('В ролях:'); ?>&nbsp;&nbsp;&nbsp;
 					<?php
 						$actors = wp_get_post_terms($tvshow, 'dtcast');
-						//dump($actors);
 						$actors_list = "";
 						foreach ($actors as $key => $value) {
 							$actors_list .= $value->name;
