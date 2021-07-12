@@ -20,3 +20,33 @@ function dooplay_parent_theme_enqueue_styles() {
 	);
 
 }
+
+function doo_post_date($format = false, $echo = true){
+	if(!is_string($format) || empty($format) || $format === 'F j, Y') {
+		$format = get_option('date_format');
+	}
+	$date = sprintf( __d('%1$s') , get_the_time($format) );
+	if($echo){
+		echo $date;
+	} else {
+		return $date;
+	}
+}
+
+function doo_date_compose($date = false , $echo = true){
+	if(class_exists('DateTime')){
+		$format = get_option('date_format');
+		$class = new DateTime($date);
+		if($echo){
+			echo $class->format($format);
+		}else{
+			return $class->format($date);
+		}
+	} else {
+		if($echo){
+			echo $date;
+		}else{
+			return $date;
+		}
+	}
+}
