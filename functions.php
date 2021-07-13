@@ -50,3 +50,17 @@ function doo_date_compose($date = false , $echo = true){
 		}
 	}
 }
+
+require get_stylesheet_directory() . '/app/customizer.php';
+
+function insertAfter(&$arr, $index, $k, $value){
+	$tmpArr = [];
+	foreach ($arr as $key => $val) {
+		$tmpArr[$key] = $val;
+		if ($key == $index) {
+			$tmpArr[$k] = $value;
+		}
+	}
+	$arr = $tmpArr;
+
+}

@@ -1,5 +1,7 @@
 * DONE make styles
 * DONE corrcet date show
 * DONE actors output on season description
-* TODO serials list on season page
+* DONE serials list on season page
+* DONE make background changegable
+* DONE home page text blocks
 * TODO check tranlations
