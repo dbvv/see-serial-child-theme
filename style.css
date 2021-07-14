@@ -8,4 +8,48 @@ Template:       dooplay
 Version:        0.1.0
  */
 
+.dooplay_player .options {
+	padding: 0px !important;
+	background: rgba(0,0,0,0.5);
+}
 
+.dooplay_player .options ul {
+	margin: 1px 0 !important;
+	width: 100%;
+	display: flex;
+	/*flex-wrap: wrap;*/
+	align-items: flex-start;
+	justify-content: flex-start;
+}
+
+.dooplay_player .options ul li {
+	border-bottom: solid 1px rgb(86, 119, 108);
+	background: transparent;
+}
+
+.dooplay_player .options ul li.on, .dooplay_player .options ul li.on:hover {
+	background: rgba(255,255,255,0.1);
+}
+.dooplay_player .options ul li.on i {
+    color: #56776c !important;
+}
+.dooplay_player .options ul li {
+	float: left;
+	padding: 15px 20px;
+	font-weight: 500;
+	cursor: pointer;
+	line-height: 20px;
+	border-bottom: solid 1px rgb(86, 119, 108) !important;
+	flex-grow: 1;
+}
+
+.pag_episodes .item a:hover, .pag_episodes .item a {
+	color: #ffffff !important;
+	background: #415a52 !important;
+}
+.dooplay_player{
+	padding: 0;
+	border-bottom: none !important;
+	box-shadow: 0 15px 20px -7px rgba(0,0,0,.6) !important;
+
+}

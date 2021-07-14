@@ -84,13 +84,16 @@ $title_data = array(
         <?php if($adsingle) echo '<div class="module_single_ads">'.$adsingle.'</div>'; ?>
 
         <!-- Content and Episodes list -->
-        <div class="sbox">
-            <?php if(get_the_content()){ ?>
-            <div class="wp-content" style="margin-bottom: 10px;">
-        	    <?php the_content(); ?>
-        	</div>
-            <?php } ?>
+        <div class="" >
+			<h2 class="sezon">Все серии <?php echo $temp; ?> сезона</h2>
             <?php get_template_part('inc/parts/single/listas/seasons'); ?>
+            <?php if(get_the_content()){ ?>
+			<div class="sbox">
+				<div class="wp-content" style="margin-bottom: 10px;">
+					<?php the_content(); ?>
+				</div>
+			</div>
+            <?php } ?>
         </div>
 
         <!-- Season social links -->

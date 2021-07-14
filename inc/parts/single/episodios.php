@@ -25,7 +25,7 @@ $tvshow    = doo_get_tvpermalink($tmdbids);
 // Options
 $player_ads = doo_compose_ad('_dooplay_adplayer');
 $player_wht = dooplay_get_option('playsize','regular');
-$title_opti = dooplay_get_option('dbmvstitleepisodes','{name}: {season}x{episode}');
+$title_opti = dooplay_get_option('dbmvstitleepisodes','{name} {season} сезон {episode} серия');
 // Sidebar
 $sidebar = dooplay_get_option('sidebar_position_single','right');
 $tvshownav = DDbmoviesHelpers::EpisodeNav($tmdbids,$temporad,$episode);
@@ -39,7 +39,7 @@ $title_data = array(
 <style>#seasons .se-c .se-a ul.episodios li.mark-<?php echo $episode; ?> {opacity: 0.2;}</style>
 <?php get_template_part('inc/parts/single/report-video'); ?>
 <!-- Big Player -->
-<?php DooPlayer::viewer_big($player_wht, $player_ads, $dynamicbg); ?>
+<?php DooPlayerChild::viewer_big($player_wht, $player_ads, $dynamicbg); ?>
 <!-- Start Single -->
 <div id="single" class="dtsingle">
     <!-- Edit link response Ajax -->
@@ -52,18 +52,26 @@ $title_data = array(
 
 	<div class="content <?php echo $sidebar; ?>">
         <!-- Regular Player and Player Options -->
-        <?php DooPlayer::viewer($post->ID, 'tv', $player, false, $player_wht, $tviews, $player_ads, $dynamicbg); ?>
+        <?php DooPlayerChild::viewer($post->ID, 'tv', $player, false, $player_wht, $tviews, $player_ads, $dynamicbg); ?>
         <!-- Episodes paginator -->
 		<?php require_once( DOO_DIR.'/inc/parts/single/listas/episode_navigator.php'); ?>
         <!-- Episode Info -->
 		<div id="info" class="sbox">
 			<h1 class="epih1"><?php echo dbmovies_title_tags($title_opti,$title_data); ?></h1>
 
+        		<?php echo do_shortcode('[starstruck_shortcode]'); ?>
 			<div itemprop="description" class="wp-content">
 				<h3 class="epih3"><?php echo doo_isset($postmeta,'episode_name'); ?></h3>
-				<?php the_content(); dbmovies_get_images($images); ?>
+				<?php
+					the_content();
+					//dbmovies_get_images($images);
+				?>
+				<div class="mobilepr">
+					<?php printf(get_theme_mod('dooplay_episode_after_content'), $title_data['episode'], $title_data['season']); ?>
+				</div>
+
 			</div>
-			<?php if($d = doo_isset($postmeta, 'air_date')) echo '<span class="date">'.doo_date_compose($d,false).'</span>'; ?>
+			<?php if($d = doo_isset($postmeta, 'air_date')) echo '<span class="date">Дата выхода: '.doo_date_compose($d,false).'</span>'; ?>
 		</div>
         <!-- Episode Social Links -->
 		<?php doo_social_sharelink($post->ID); ?>

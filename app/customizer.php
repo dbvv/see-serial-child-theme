@@ -74,7 +74,7 @@ if (class_exists('WP_Customize_Control')) {
 	));
 
 	$customizer->add_section('dooplay_child_home', [
-		'title' => __('Home page'),
+		'title' => __('Repeatable texts'),
 		'transport' => 'refresh',
 	]);
 	$customizer->add_setting('dooplay_home_serial_description', [
@@ -85,6 +85,7 @@ if (class_exists('WP_Customize_Control')) {
 		'default' => '',
 		'transport' => 'refresh',
 	]);
+
 	$customizer->add_control(new WP_Customize_Teeny_Control(
 		$customizer,
 		'dooplay_home_serial_description',
@@ -102,6 +103,16 @@ if (class_exists('WP_Customize_Control')) {
 		]
 	));
 
+	$customizer->add_setting('dooplay_episode_after_content', [
+		'default' => '',
+		'transport' => 'refresh',
+	]);
+	$customizer->add_control('dooplay_episode_after_content',
+		[
+			'label' => __('Episode text after content'),
+			'section' => 'dooplay_child_home',
+			'type' => 'textarea',
+		]);
 }
 
 
@@ -111,7 +122,7 @@ add_action('wp_head', 'dooplay_child_custom_theme_styles', 100);
 function dooplay_child_custom_theme_styles() {
 	$background = get_theme_mod('background');
 	if ($background) {
-		$style = "<style>body #dt_contenedor {background: url($background)top center !important;}</style>";
+		$style = "<style>body #dt_contenedor {background-image: url($background) !important; background-repeat: no-repeat !important;}</style>";
 		echo $style;
 	}
 

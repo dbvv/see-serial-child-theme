@@ -52,6 +52,7 @@ function doo_date_compose($date = false , $echo = true){
 }
 
 require get_stylesheet_directory() . '/app/customizer.php';
+require get_stylesheet_directory() . '/inc/doo_player.php';
 
 function insertAfter(&$arr, $index, $k, $value){
 	$tmpArr = [];
